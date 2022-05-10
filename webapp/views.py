@@ -11,7 +11,7 @@ import requests
 from .Asset import *
 import time
 
-uri = os.environ.get('MONGO_URI', 'mongodb+srv://fivosvardis:123.456.789@cluster0.74bck.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+uri = os.environ.get('MONGO_URI', '')
 p = None
 
 def home(request):
