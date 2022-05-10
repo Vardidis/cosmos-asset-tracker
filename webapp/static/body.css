@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+.keplr button{
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    top: -12px;
+    left: 20px;
+    width: 100px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.keplr i{
+    position: relative;
+    color: #fff;
+    top: 3px;
+    font-size: 18px;
+    margin-right: 3px;
+}
+
+.keplr{
+    background-color: #11101d9e;
+    border-radius: 12px;
+    top: 15px;
+    right: 45px;
+    position: fixed;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    border: rgb(46, 33, 33) 1px solid;
+    cursor: pointer;
+}
+
+.keplr:hover{
+    border: rgb(104, 68, 68) 2px solid;
+    transition: all 0.3s ease 0s;
+}
+
+.main-box{
+    height: 85%;
+    width: 60%;
+    min-width: 500px;
+    text-align: center;
+    margin-left: -10px;
+    border-radius: 12px;
+    /* align-items: center; */
+    position: fixed;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    float: right;
+    display: flex;
+}
+
+.main-box .charts a{
+    position: relative;
+    top: -15px;
+    left: -15px;
+}
+
+body{
+    background: #11101df7
+}
+
+.stats img{
+    position: relative;
+    width: 72px;
+    height: 72px;
+    left: 50%;
+    top: -225px;
+    /* display: flex; if this gets deleted symbol goes center of div*/
+}
+
+/* .main-box table{
+    width:100%;
+    left: 50px;
+    color: #fff;
+    margin-top: 50px;
+    margin-bottom: 40px;
+} */
+
+/* .main-box table td{
+    text-align: center;
+    align-items: center;
+    top: 120px;
+} */
+
+/* .main-box table th{
+    margin-left: 20px;
+    font-weight: normal;
+    width: 150px;
+} */
+
+/* .main-box table tr{
+    line-height: 60px;
+    border: #fff 1px solid;
+    border-radius: 12px;
+} */
+
+/* .main-box table thead th{
+    font-size: 20px;
+    color: rgb(143, 137, 209);
+} */
+
+.main-box tbody i{
+    color: #fff;
+    margin-left: 4px;
+}
+
+.time a{
+    color: #fff;
+    right: 10px;
+    bottom: 1px;
+    position: fixed;
+}
+
+.title{
+    float: left;
+    left: 15px;
+    top: 1px;
+}
+
+body{
+    overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+    width: 20px;
+  }
+
+body::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border: 5px solid transparent;
+    background-clip: content-box;
+    background-color: #8070d4;
+}
+
+.total{
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: #fff solid 1px;
+    border-radius: 12px;
+    width: 15%;
+    height: wrap-content;
+    left: 33%;
+    top: 200px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.total table{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 40px;
+}
+
+.total .no-touch a{
+    margin-left: 45px;
+}
+
+.total a{
+    position: relative;
+    top: 1px;
+}
+
+.total table td span{
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+    left: 40px;
+}
+
+.total table thead th{
+    position: relative;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.total table td a{
+    font-size: 16px;
+    top: -2px;
+}
+
+.total .val td a{
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.37);
+    top: -20px;
+}
+
+.changePerc{
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: #fff solid 1px;
+    border-radius: 12px;
+    width: 20%;
+    height: wrap-content;
+    right: 25%;
+    top: 200px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.changePerc table{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 50px;
+}
+
+.changePerc a{
+    position: relative;
+    top: 1px;
+    left: 10px;
+}
+
+.changePerc td i{
+    color: rgba(103, 199, 133, 0.79);
+}
+
+.changePerc table td span{
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.changePerc table thead th{
+    position: relative;
+    font-size: 16px;
+    font-weight: normal;
+    min-width: 100px;
+}
+
+.second-row{    
+    position: relative;
+    float: top;
+    top: 5px;
+    margin-bottom: 20px;
+}
+
+.second-row tr th{
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.second-row tr td{
+    position: relative;
+    top: -10px;
+    color: rgba(103, 199, 133, 0.79);
+}
+
+.rewards{
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: #fff solid 1px;
+    border-radius: 12px;
+    width: 15%;
+    height: wrap-content;
+    top: 425px;
+    left: 33%;
+    color: #fff;
+    overflow: hidden;
+}
+
+.rewards table{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 40px;
+}
+
+.rewards .no-touch a{
+    margin-left: 45px;
+}
+
+.rewards a{
+    position: relative;
+    top: 1px;
+}
+
+.rewards table td span{
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+    left: 40px;
+}
+
+.rewards table thead th{
+    position: relative;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.rewards table td a{
+    font-size: 16px;
+    top: -2px;
+}
+
+.rewards .val td a{
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.37);
+    top: -20px;
+}
+
+.fees{
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: #fff solid 1px;
+    border-radius: 12px;
+    width: 20%;
+    height: wrap-content;
+    right: 25%;
+    top: 550px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.fees table{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 50px;
+}
+
+.fees a{
+    position: relative;
+    top: 1px;
+    left: 10px;
+}
+
+.fees td i{
+    color: rgba(103, 199, 133, 0.79);
+}
+
+.fees table td span{
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.fees table thead th{
+    position: relative;
+    font-size: 16px;
+    font-weight: normal;
+    min-width: 100px;
+}
+
+.delegated{
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: #fff solid 1px;
+    border-radius: 12px;
+    width: 15%;
+    height: wrap-content;
+    left: 33%;
+    top: 650px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.delegated table{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 50px;
+}
+
+.delegated a{
+    position: relative;
+    top: 1px;
+    left: 10px;
+}
+
+.delegated td i{
+    color: rgba(103, 199, 133, 0.79);
+}
+
+.delegated table td span{
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.delegated table thead th{
+    position: relative;
+    font-size: 16px;
+    font-weight: normal;
+    min-width: 100px;
+}

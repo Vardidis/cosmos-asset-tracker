@@ -1,0 +1,99 @@
+
+
+#DELEGATE DATA
+https://lcd-cosmos.cosmostation.io/cosmos/staking/v1beta1/delegations/<ADDRESS>?pagination.limit=1000
+#UNBONDING DATA
+https://lcd-cosmos.cosmostation.io/cosmos/staking/v1beta1/delegators/<ADDRESS>/unbonding_delegations
+#REWARDS DATA
+https://lcd-cosmos.cosmostation.io/cosmos/distribution/v1beta1/delegators/<ADDRESS>/rewards
+#BALANCE DATA
+https://lcd-cosmos.cosmostation.io/cosmos/bank/v1beta1/balances/<ADDRESS>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# COIN METADATA
+https://api.emeris.com/v1/chains -  chain_name: "akash"
+                                    display_name: "Akash"
+                                    logo: "https://storage.googleapis.com/emeris/logos/akash.svg"
+
+
+
+
+# OSMO STAKING TRACKER (BONDED)
+https://lcd-osmosis.keplr.app/staking/delegators/<osmo address>/delegations [result] [0] [balance]
+
+#OSMO STAKING TRACKER (UNBONDING)
+https://lcd-osmosis.keplr.app/staking/delegators/<osmo address>/unbonding_delegations
+
+
+#LP GAMM/POOL DATA
+https://lcd-osmosis.keplr.app/osmosis/lockup/v1beta1/account_locked_coins/<osmo address>
+
+#GET ALL PRICES
+https://api.coingecko.com/api/v3/simple/price?ids=osmosis,ion,cosmos,terra-luna,crypto-com-chain,terrausd,secret,juno-network,neta,persistence,pstake-finance,terra-krw,akash-network,regen,sentinel,iris-network,starname,e-money,e-money-eur,likecoin,bitcanna,medibloc,comdex,cheqd-network,vidulum,sifchain,band-protocol,decentr&vs_currencies=usd
+
+
+
+
+
+
+					// window.keplr.experimentalSuggestChain({
+					// 										chainId,
+					// 										chainName: 'Regen Devnet',
+					// 										rpc: 'http://devnet.regen.network:26657',
+					// 										rest: 'https://devnet.regen.network',
+					// 										stakeCurrency: {
+					// 											coinDenom: 'REGEN',
+					// 											coinMinimalDenom: 'uregen',
+					// 											coinDecimals: 6,
+					// 										},
+					// 										bip44: {
+					// 											coinType: 118,
+					// 										},
+					// 										bech32Config: {
+					// 											bech32PrefixAccAddr: 'regen',
+					// 											bech32PrefixAccPub: 'regenpub',
+					// 											bech32PrefixValAddr: 'regenvaloper',
+					// 											bech32PrefixValPub: 'regenvaloperpub',
+					// 											bech32PrefixConsAddr: 'regenvalcons',
+					// 											bech32PrefixConsPub: 'regenvalconspub',
+					// 										},
+          			// 										currencies: [{
+					// 											coinDenom: 'REGEN',															
+					// 											coinMinimalDenom: 'uregen',
+					// 											coinDecimals: 6,
+					// 										},],
+					// 										feeCurrencies: [{
+					// 											coinDenom: 'REGEN',
+					// 											coinMinimalDenom: 'uregen',
+					// 											coinDecimals: 6,
+					// 										},],
+					// 										coinType: 118,
+					// 										gasPriceStep: {
+					// 											low: 0.01,
+					// 											average: 0.025,
+					// 											high: 0.04,
+					// 										},
+					// 										features: ['stargate'],
+					// 									})
+					// .then(() => {
+					// setIsChainDetected(true);
+					// })
+					// .catch(() => {
+					// setIsChainDetected(false);
+					// })

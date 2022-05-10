@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;1,100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 240px;
+    background: #11101d;
+    padding: 6px 14px;
+    overflow: auto;
+    z-index: 1;
+}
+
+.sidebar .logo_content .logo{
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+}
+
+.logo_content .logo i{
+    font-size: 48px;
+    margin-right: 25px;
+}
+
+.logo_content .logo .logo_name{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.sidebar ul{
+    margin-top: 20px;
+}
+
+.sidebar ul li{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+    line-height: 50px;
+    border-radius: 12px;
+}
+
+.sidebar ul li:nth-child(3){
+    margin-bottom: 25px;
+}
+
+.sidebar ul li input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    background: #1d1b31;
+    padding-left: 50px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.sidebar ul li .bx-search{
+    position: absolute;
+    z-index: 99;
+    color: #fff;
+    font-size: 22px;
+}
+
+.sidebar ul li a{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+}
+
+.sidebar ul li a:hover{
+    color: #11101d;
+    background: rgb(143, 137, 209);
+}
+
+.sidebar ul li i{
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.sidebar ul li img{
+    position: relative;
+    display: block;
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+    margin-right: 25px;
+}
+
+.sidebar ul li img:hover{
+    fill: rgb(0,0,0,1);
+    src: "../static/home.png";
+}

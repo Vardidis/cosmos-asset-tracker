@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block content %}		
+<table class="content-table graph" id="asset-table">
+	<thead>
+		<th>Symbol</th>
+		<th>Price</th>
+		<th>Balance</th>
+		<th>Details</th>
+	</thead>
+	<tbody>
+		{% for asset in assets %}
+			<tr onclick="getStats(this.id)" id={{asset.symbol}}>
+				<td>
+					<div>
+						<img src={{asset.svg}} class="svg">
+					</div>
+					<div>
+						<span>{{asset.symbol}}</span>
+					</div>
+				</td>
+				<td>
+					<div>
+						<span><b>${{asset.cur_price}}</b></span>
+					</div>
+				</td>
+				<td>
+					<div>
+						<span id={{asset.symbol}}-perc></span>
+					</div>
+					<div>
+						<span id={{asset.symbol}}-bal>0</span>
+					</div>
+				</td>
+				<td>					
+					<label for="dropping">Info</label>
+					<input type="checkbox" name="dropping" id="dropping" data-toggle="toggle">
+				</td>
+			</tr>	
+				<tbody class="hide" style="display:none">
+					<tr>
+						<th>Balance</th>
+						<div>
+							<td>Australia</td>
+						<td>$7,685.00</td>
+						<td>$3,544.00</td>
+						</div>
+						
+					</tr>
+					<tr>
+						<th>Testing</th>
+					</tr>
+				</tbody>
+			
+		{% endfor %}
+		<tr>	
+			<td>Total</td>
+			<td>${{total}}</td>
+			<td>
+				{% if sum > 0 %}
+					<span class="pos">+${{sum}}</span>
+				{% elif sum == 0 %}
+					<span>${{sum}}</span>
+				{% else %}
+					<span class="neg">${{sum}}</span>
+				{% endif %}
+			</td>
+		</tr>
+	</tbody>
+</table>
+<script>
+	
+
+	window.onload = async () =>{
+		const chainId = ["cosmoshub-4", "osmosis-1", "juno-1", "chihuahua-1", "stargaze-1", "sentinelhub-2"];
+		var ref = {"cosmoshub-4": "ATOM", "osmosis-1": "OSMO", "juno-1": "JUNO", "chihuahua-1": "HUAHUA", "stargaze-1": "STARS", "sentinelhub-2": "DVPN"};
+		var addressDict = {"ATOM": "", "OSMO": "", "JUNO": "", "HUAHUA": "", "STARS": "", "DVPN": ""};
+		var accounts;		
+		const table = document.getElementById("asset-table").children;
+		
+		if(!window.keplr){
+			alert("Please install Keplr extension!");
+		}else{
+			await window.keplr.enable(chainId);
+
+			for(i=0; i<chainId.length; i++){
+				this.offlineSigner = await window.getOfflineSigner(chainId[i]);
+				accounts = await this.offlineSigner.getAccounts();
+				addressDict[ref[chainId[i]]] = accounts[0].address;
+				fetch("/getAllTxs?asset=" + ref[chainId[i]] + "&address=" + addressDict[ref[chainId[i]]])
+				.then(response => response.json())
+				.then(data => {		
+				})
+			}
+			
+			
+			
+
+			if(window.offlineSigner){
+				keplrBtn.innerHTML = "Keplr connected";
+                keplrBtn.className = "disabled";
+			}
+		}	
+	}
+
+	$(document).ready(function() {
+	    $('[data-toggle="toggle"]').change(function(){
+		    $(this).parents().next('.hide').toggle();
+	    });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <link rel="stylesheet" href='../static/styles.css?{% now "U" %}'/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <img class="logo" src="https://freesvg.org/storage/img/thumb/SketchedOrange.png" alt="logo">
+            <nav>                
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/master">Stats</a></li>
+                    <li><a href="https://github.com/Vardidis/pyosmo">Github</a></li>
+                </ul>
+            </nav>
+            <a class="cta"><button id="keplr">Connect wallet</button></a>
+        </header>
+ 
+{% block content %}
+{% endblock %}
+<script>
+    const chainId = ["cosmoshub-4", "osmosis-1", "juno-1", "chihuahua-1", "stargaze-1", "sentinelhub-2"];
+	var ref = {"cosmoshub-4": "ATOM", "osmosis-1": "OSMO", "juno-1": "JUNO", "chihuahua-1": "HUAHUA", "stargaze-1": "STARS", "sentinelhub-2": "DVPN"};
+	var addressDict = {"ATOM": "", "OSMO": "", "JUNO": "", "HUAHUA": "", "STARS": "", "DVPN": ""};
+	var accounts;
+    const keplrBtn = document.getElementById("keplr");
+    
+    const connectKeplr = async() => {
+		if(!window.keplr){
+			alert("Please install Keplr extension!");
+		}else{
+			await window.keplr.enable(chainId);
+
+			for(i=0; i<chainId.length; i++){
+				this.offlineSigner = await window.getOfflineSigner(chainId[i]);
+				accounts = await this.offlineSigner.getAccounts();
+				addressDict[ref[chainId[i]]] = accounts[0].address;
+			}
+			return window.getOfflineSigner;
+		}
+	}
+
+    keplrBtn.addEventListener("click", function(event){
+        connectKeplr()
+        .then(response => {
+            if(response){
+                keplrBtn.innerHTML = "Keplr connected";
+                keplrBtn.className = "disabled";
+            }else{
+                keplrBtn.innerHTML = "Connect wallet";
+                keplrBtn.className = "";
+            }
+        })
+    });
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

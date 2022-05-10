@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Keepr! Keep Track of your crypto</title>
+        <link rel="stylesheet" href='../static/sidebar.css?{% now "U" %}'>
+        <link rel="stylesheet" href='../static/body.css?{% now "U" %}'>
+        <link rel="stylesheet" href='../static/charts.css?{% now "U" %}'>
+        <link rel="stylesheet" href='../static/grid.css?{% now "U" %}'>
+        <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="keplr" id="keplrBtn">
+            <div>
+                <i class='bx bxs-wallet'></i>
+                <button>Connect Keplr</button>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class='bx bxl-kickstarter'></i>
+                    <div class="logo_name">Keepr</div>
+                </div>
+            </div>
+            <ul class="nav_list">
+                <li>
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-bar-chart'></i>
+                        <span class="links_name">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-wallet-alt' ></i>
+                        <span class="links_name">Portfolio</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="bor" href="#">
+                        <i class='bx bx-atom' ></i>
+                        <span class="links_name">Atom</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-flask' ></i>
+                        <span class="links_name">Osmosis</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-circle'></i>
+                        <span class="links_name">Juno</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxl-stripe'></i>
+                        <span class="links_name">Secret</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-parking'></i>
+                        <span class="links_name">Persistence</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-font'></i>
+                        <span class="links_name">Akash</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-star'></i>
+                        <span class="links_name">Stargaze</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-wine'></i>
+                        <span class="links_name">Sommelier</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxl-tailwind-css'></i>
+                        <span class="links_name">Umee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-dog'></i>
+                        <span class="links_name">Chihuahua</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-dollar'></i>
+                        <span class="links_name">Terra</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="social-media">
+                <div class="icons"></div>
+            </div>
+        </div>        
+        <script>
+            const chainId = ["cosmoshub-4", "osmosis-1", "juno-1", "chihuahua-1", "stargaze-1", "sentinelhub-2"];
+
+            window.onload = async () =>{		            
+                if(!window.keplr){
+                    alert("Please install Keplr extension!");
+                }else{
+                    await window.keplr.enable(chainId);
+
+                    for(i=0; i<chainId.length; i++){
+                        this.offlineSigner = await window.getOfflineSigner(chainId[i]);
+                        accounts = await this.offlineSigner.getAccounts();
+                    }
+                }
+            }
+            const connectKeplr = async() => {
+                if(!window.keplr){
+                    alert("Please install Keplr extension!");
+                }else{
+                    await window.keplr.enable(chainId);
+
+                    for(i=0; i<chainId.length; i++){
+                        this.offlineSigner = await window.getOfflineSigner(chainId[i]);
+                        accounts = await this.offlineSigner.getAccounts();
+                        addressDict[ref[chainId[i]]] = accounts[0].address;
+                    }
+                    return window.getOfflineSigner;
+                }
+            }
+
+            keplrBtn.addEventListener("click", function(event){
+                connectKeplr()
+                .then(response => {
+                    if(response){
+                        keplrBtn.innerHTML = "Keplr connected";
+                        keplrBtn.className = "disabled";
+                    }else{
+                        keplrBtn.innerHTML = "Connect wallet";
+                        keplrBtn.className = "";
+                    }
+                })
+            });
+        </script>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

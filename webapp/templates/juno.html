@@ -1,0 +1,231 @@
+{% extends 'devMaster.html' %}
+
+{% block content %}
+        <div id="table-info">
+            <img src="..\static\Juno.png">
+            <div class="stats">
+                <img src="..\static\Juno.png">
+                <div class="total">
+                    <a class="title">Overview</a>
+                    <table>
+                        <thead>
+                            <th>Balance</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="no-touch">
+                                    <span>{{amount}}</span>
+                                    <a>JUNO</a>
+                                </td>                            
+                            </tr>
+                            <tr class="val">
+                                <td>
+                                    <a>= ${{amount_value}}</a>           
+                                </td>
+                            </tr>
+                        </tbody>                            
+                    </table>
+                </div>
+                <div class="changePerc">
+                    <a class="title">Change %</a>
+                    <table>
+                        <thead>
+                            <th>Initial Investment</th>
+                            <th>Profit</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>${{init_amount}}</span>
+                                </td>               
+                                <td>
+                                    <span>{{change_perc}}%</span>
+                                    <i class='bx bxs-up-arrow'></i>
+                                </td>             
+                            </tr>
+                            </tr>
+                        </tbody>                            
+                    </table>
+                    <table class="second-row">
+                        <tr>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>${{change_value}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="rewards">
+                    <a class="title">Rewards</a>
+                    <table>
+                        <thead>
+                            <th>Total</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="no-touch">
+                                    <span>{{rewards}}</span>
+                                    <a>JUNO</a>
+                                </td>                            
+                            </tr>
+                            <tr class="val">
+                                <td>
+                                    <a>= ${{rewards_value}}</a>           
+                                </td>
+                            </tr>
+                        </tbody>                            
+                    </table>
+                </div>
+                <div class="fees">
+                    <a class="title">Fees</a>
+                    <table>
+                        <thead>
+                            <th>Proposals</th>
+                            <th>Updates</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>${{fees}}</span>
+                                </td>               
+                                <td>
+                                    <span>${{updates}}</span>
+                                </td>             
+                            </tr>
+                            </tr>
+                        </tbody>                            
+                    </table>
+                    <table class="second-row">
+                        <tr>
+                            <th>Total</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>${{fees_updates_value}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="delegated">
+                    <a class="title">Delegations</a>
+                    <table>
+                        <thead>
+                            <th>Bonded</th>
+                            <th>Unbonding</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>{{delegated}}</span>
+                                </td>               
+                                <td>
+                                    <span>{{unbonding}}</span>
+                                </td>             
+                            </tr>
+                            </tr>
+                        </tbody>                            
+                    </table>
+                    <table class="second-row">
+                        <tr>
+                            <th>Total</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>$1.34</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- <table>
+                    <thead>
+                        <th>Description</th>
+                        <th>Balance</th>
+                        <th>Value</th>
+                        <th>Change %</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Total amount</th>
+                            <td>{{amount}}</td>     
+                            <td>-</td>                                     
+                            <td>-
+                                <i class='bx bxs-up-arrow'></i>
+                            </td>  
+                        </tr>
+                        <tr>
+                            <th>Rewards</th>
+                            <td>{{rewards}}</td>
+                            <td>-</td>      
+                            <td>-</td>  
+                        </tr>
+                        <tr>
+                            <th>Fees</th>
+                            <td>{{fees}}</td>
+                            <td>-</td>      
+                            <td>-</td>  
+                        </tr>
+                        <tr>
+                            <th>Delegated</th>
+                            <td>{{delegated}}</td>
+                            <td>-</td>      
+                            <td>-</td>  
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <table class="charts">
+                        <tr>
+                            <td>
+                                <div class="pie animate" style="--p:3;--c:rgb(196, 209, 166);--b:5px"> 3%</div>
+                            </td>
+                            <td>
+                                <div class="pie animate" style="--p:40;--c:rgb(143, 137, 209);--b:5px"> 40%</div>
+                            </td>
+                            <td>
+                                <div class="pie animate" style="--p:0.1;--c:rgb(213, 152, 124);--b:5px"> 0.1%</div>
+                            </td>
+                            <td>
+                                <div class="pie animate" style="--p:56.9;--c:rgb(122, 186, 138);--b:5px"> 56.9%</div>
+                            </td>                                                                                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <a>Rewards</a>
+                            </td>
+                            <td>
+                                <a>Delegated</a>
+                            </td>
+                            <td>
+                                <a>Fees</a>
+                            </td>
+                            <td>
+                                <a>Some shit</a>
+                            </td>
+                        </tr>
+                    </table> -->
+                    
+                        <!-- <ul>
+                            <li>Fees</li>
+                            <li>Rewards</li>
+                            <li>Delegations</li>
+                            <li>Fees</li>
+                        </ul> -->
+                        <div>
+        
+        <div class="time">
+            <a>12:39:12</a>
+        </div>
+
+<script>
+    window.onload = async() => {
+        alert(addressDict);
+        fetch("/getAllTxs?asset=JUNO&address=" + addressDict[ref["JUNO"]])
+        .then(response => json.loads(response))
+        .then(data => {
+            alert();
+        })
+    }
+</script>
+{% endblock %}

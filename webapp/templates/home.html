@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}		
+<table class="content-table graph">
+	<thead>
+		<th>Symbol</th>
+		<th>Price</th>
+		<th>24h Vol</th>
+	</thead>
+	<tbody>
+		{% for asset in assets %}
+			<tr onclick="assetClick(this.id)" id={{asset.symbol}}>
+				<td>
+					<div>
+						<img src={{asset.svg}} class="svg">
+					</div>
+					<div>
+						<span>{{asset.symbol}}</span>
+					</div>
+				</td>
+				<td>
+					<div>
+						<span><b>${{asset.cur_price}}</b></span>
+					</div>
+				</td>
+				<td>
+					<div>
+						{% if asset.change_perc > 0 %}
+							<span class="pos">+{{asset.change_perc}}%</span>
+						{% elif asset.change_perc < 0 %}
+							<span class="neg">{{asset.change_perc}}%</span>
+						{% else %}
+							<span>{{asset.change_perc}}%</span>
+						{% endif %}
+					</div>
+					<div>
+						<span>${{asset.change_abs}}</span>
+					</div>
+				</td>
+		{% endfor %}
+		<tr>	
+			<td>Total</td>
+			<td>${{total}}</td>
+			<td>
+				{% if sum > 0 %}
+					<span class="pos">+${{sum}}</span>
+				{% elif sum == 0 %}
+					<span>${{sum}}</span>
+				{% else %}
+					<span class="neg">${{sum}}</span>
+				{% endif %}
+			</td>
+		</tr>
+	</tbody>
+</table>
+<script>
+	function assetClick(asset){
+		if(!window.getOfflineSigner || !window.keplr){
+			alert("Please connect your wallet to be able to see Stats");
+		}else{
+			window.open("/master?asset="+asset);
+		}
+	}
+</script>
+{% endblock %}
